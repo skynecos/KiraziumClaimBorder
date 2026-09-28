@@ -1,0 +1,18 @@
+wall:
+  # Must be a block material.
+  material: PURPLE_STAINED_GLASS
+
+  # Wall height in blocks.
+  height: 4.0
+
+  # Very thin visual wall; this does not create collision.
+  thickness: 0.04
+
+  # 100 ticks = 5 seconds.
+  duration-ticks: 100
+
+  # Bottom of the wall relative to the player's current Y.
+  y-offset: -1.0
+
+  # 0-15. 15 keeps the border visible in dark areas.
+  brightness: 15
