@@ -5,9 +5,8 @@ Small Paper addon for SimpleClaimSystem that replaces the native `/claim see` pa
 ## Target
 
 - Paper 26.1.2
-- Java 25 server runtime
+- Java 25
 - SimpleClaimSystem 1.13.1
-- The plugin bytecode is kept Java 21 compatible where possible.
 
 ## Install
 
@@ -40,4 +39,3 @@ No ProtocolLib, Nexo, ModelEngine, or resource pack is required.
 - `wall.duration-ticks`
 - `wall.y-offset`
 - `wall.brightness`
-
