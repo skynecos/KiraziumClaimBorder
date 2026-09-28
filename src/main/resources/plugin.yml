@@ -1,0 +1,7 @@
+name: KiraziumClaimBorder
+version: ${version}
+main: com.kirazium.claimborder.KiraziumClaimBorder
+description: Thin purple claim border preview for SimpleClaimSystem.
+author: Kirazium
+api-version: '1.21'
+depend: [SimpleClaimSystem]
