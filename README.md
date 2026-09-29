@@ -8,6 +8,11 @@ Small Paper addon for SimpleClaimSystem that replaces the native `/claim see` pa
 - Java 25
 - SimpleClaimSystem 1.13.1
 
+## v1.0.1
+
+- Default wall height increased from 4 blocks to 16 blocks.
+- Existing v1.0.0 configs are migrated automatically.
+
 ## Install
 
 1. Install SimpleClaimSystem.
