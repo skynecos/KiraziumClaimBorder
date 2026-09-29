@@ -12,11 +12,26 @@ public final class KiraziumClaimBorder extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
+        int configVersion = getConfig().getInt("config-version", 1);
+
         // v1.0.1 migration: existing v1.0.0 configs used a 4-block wall.
-        // Upgrade it automatically so replacing only the JAR is enough.
-        if (getConfig().getInt("config-version", 1) < 2) {
+        if (configVersion < 2) {
             getConfig().set("wall.height", 16.0D);
-            getConfig().set("config-version", 2);
+            configVersion = 2;
+        }
+
+        // v1.0.2 migration: split one border material into own/empty/other colors.
+        if (configVersion < 3) {
+            final String previousMaterial = getConfig().getString("wall.material", "PURPLE_STAINED_GLASS");
+            getConfig().set("wall.materials.own", previousMaterial);
+            getConfig().set("wall.materials.empty", "WHITE_STAINED_GLASS");
+            getConfig().set("wall.materials.other", "RED_STAINED_GLASS");
+            getConfig().set("wall.material", null);
+            configVersion = 3;
+        }
+
+        if (getConfig().getInt("config-version", 1) != configVersion) {
+            getConfig().set("config-version", configVersion);
             saveConfig();
         }
 

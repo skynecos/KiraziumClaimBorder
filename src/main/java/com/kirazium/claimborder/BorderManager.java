@@ -59,7 +59,14 @@ final class BorderManager {
             chunks.add(currentChunk);
         }
 
-        final Material material = getWallMaterial();
+        final Material material;
+        if (claim == null) {
+            material = getWallMaterial("wall.materials.empty", Material.WHITE_STAINED_GLASS);
+        } else if (player.getUniqueId().equals(claim.getUUID())) {
+            material = getWallMaterial("wall.materials.own", Material.PURPLE_STAINED_GLASS);
+        } else {
+            material = getWallMaterial("wall.materials.other", Material.RED_STAINED_GLASS);
+        }
         final float height = (float) Math.max(0.25D, plugin.getConfig().getDouble("wall.height", 16.0D));
         final float thickness = (float) Math.max(0.01D,
                 Math.min(1.0D, plugin.getConfig().getDouble("wall.thickness", 0.04D)));
@@ -190,15 +197,15 @@ final class BorderManager {
         expiryTasks.clear();
     }
 
-    private Material getWallMaterial() {
-        final String configured = plugin.getConfig().getString("wall.material", "PURPLE_STAINED_GLASS");
+    private Material getWallMaterial(String path, Material fallback) {
+        final String configured = plugin.getConfig().getString(path, fallback.name());
         final Material material = configured == null ? null : Material.matchMaterial(configured);
 
         if (material == null || !material.isBlock() || material.isAir()) {
             plugin.getLogger().warning(
-                    "Invalid wall.material '" + configured + "'. Falling back to PURPLE_STAINED_GLASS."
+                    "Invalid " + path + " '" + configured + "'. Falling back to " + fallback.name() + "."
             );
-            return Material.PURPLE_STAINED_GLASS;
+            return fallback;
         }
 
         return material;

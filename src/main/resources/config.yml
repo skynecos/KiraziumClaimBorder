@@ -1,8 +1,11 @@
-config-version: 2
+config-version: 3
 
 wall:
-  # Must be a block material.
-  material: PURPLE_STAINED_GLASS
+  # Border materials by area type.
+  materials:
+    own: PURPLE_STAINED_GLASS
+    empty: WHITE_STAINED_GLASS
+    other: RED_STAINED_GLASS
 
   # Wall height in blocks.
   height: 16.0

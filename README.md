@@ -8,6 +8,13 @@ Small Paper addon for SimpleClaimSystem that replaces the native `/claim see` pa
 - Java 25
 - SimpleClaimSystem 1.13.1
 
+## v1.0.2
+
+- `/claim see` on your own claim: purple border.
+- `/claim see` in unclaimed land: white border.
+- Another player's claim: red border.
+- All three materials are configurable.
+
 ## v1.0.1
 
 - Default wall height increased from 4 blocks to 16 blocks.
@@ -38,7 +45,9 @@ No ProtocolLib, Nexo, ModelEngine, or resource pack is required.
 
 `plugins/KiraziumClaimBorder/config.yml`:
 
-- `wall.material`
+- `wall.materials.own`
+- `wall.materials.empty`
+- `wall.materials.other`
 - `wall.height`
 - `wall.thickness`
 - `wall.duration-ticks`
