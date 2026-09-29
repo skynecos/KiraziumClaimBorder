@@ -60,7 +60,7 @@ final class BorderManager {
         }
 
         final Material material = getWallMaterial();
-        final float height = (float) Math.max(0.25D, plugin.getConfig().getDouble("wall.height", 4.0D));
+        final float height = (float) Math.max(0.25D, plugin.getConfig().getDouble("wall.height", 16.0D));
         final float thickness = (float) Math.max(0.01D,
                 Math.min(1.0D, plugin.getConfig().getDouble("wall.thickness", 0.04D)));
         final long durationTicks = Math.max(20L, plugin.getConfig().getLong("wall.duration-ticks", 100L));
