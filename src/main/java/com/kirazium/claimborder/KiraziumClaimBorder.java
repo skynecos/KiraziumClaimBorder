@@ -12,6 +12,14 @@ public final class KiraziumClaimBorder extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
+        // v1.0.1 migration: existing v1.0.0 configs used a 4-block wall.
+        // Upgrade it automatically so replacing only the JAR is enough.
+        if (getConfig().getInt("config-version", 1) < 2) {
+            getConfig().set("wall.height", 16.0D);
+            getConfig().set("config-version", 2);
+            saveConfig();
+        }
+
         final SimpleClaimSystemAPI api;
         try {
             api = SimpleClaimSystemAPI_Provider.getAPI();
