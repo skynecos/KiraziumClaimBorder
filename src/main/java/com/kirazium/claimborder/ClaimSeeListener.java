@@ -36,11 +36,15 @@ final class ClaimSeeListener implements Listener {
         }
 
         final String root = parts[0].toLowerCase(Locale.ROOT);
-        if (!root.equals("claim") && !root.equals("simpleclaimsystem:claim")) {
-            return;
-        }
+        final String subcommand = parts[1].toLowerCase(Locale.ROOT);
+        final boolean originalCommand = (root.equals("claim")
+                || root.equals("simpleclaimsystem:claim"))
+                && subcommand.equals("see");
+        final boolean turkishCommand = (root.equals("arazi")
+                || root.equals("kiraziumarazikomutlari:arazi"))
+                && (subcommand.equals("gor") || subcommand.equals("gör"));
 
-        if (!parts[1].equalsIgnoreCase("see")) {
+        if (!originalCommand && !turkishCommand) {
             return;
         }
 

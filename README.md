@@ -8,6 +8,11 @@ Small Paper addon for SimpleClaimSystem that replaces the native `/claim see` pa
 - Java 25
 - SimpleClaimSystem 1.13.1
 
+## v1.0.3
+
+- `/arazi gor` and `/arazi gör` now show the same temporary border as `/claim see`.
+- Namespaced Turkish commands are supported as well.
+
 ## v1.0.2
 
 - `/claim see` on your own claim: purple border.
@@ -25,13 +30,13 @@ Small Paper addon for SimpleClaimSystem that replaces the native `/claim see` pa
 1. Install SimpleClaimSystem.
 2. Put `KiraziumClaimBorder.jar` into `plugins/`.
 3. Restart the server.
-4. Use `/claim see`.
+4. Use `/claim see` or `/arazi gor`.
 
 No ProtocolLib, Nexo, ModelEngine, or resource pack is required.
 
 ## Behaviour
 
-- Intercepts only the player's own `/claim see` preview.
+- Intercepts the player's own `/claim see`, `/arazi gor`, and `/arazi gör` preview.
 - Uses SimpleClaimSystem's API to obtain the current claim.
 - Draws only exposed outer chunk edges.
 - Uses temporary `BlockDisplay` entities with `PURPLE_STAINED_GLASS`.
